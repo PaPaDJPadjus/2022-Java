@@ -8,7 +8,7 @@ public class Program {
         String binary = asString(205);
 
         System.out.println(decimal); // 205
-        System.out.println(binary);
+        System.out.println(binary); // "11001101"
     }
 
     public static String asString(int input) {
