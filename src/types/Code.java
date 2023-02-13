@@ -6,6 +6,7 @@ import java.util.Random;
 public class Code {
 
     public static void main(String[] args) {
+        System.out.println(mode("abccbc"));
     }
 
     public static int sum(int[] numbers) {
@@ -61,24 +62,27 @@ public class Code {
         }
         Character mostCommonChar = null;
         int mostComCharCounter = 0;
-        for (int i = 0; i < input.length() - 1; i++) {
+        for (int i = 0; i <= input.length() - 1; i++) {
             char characterToLookFor = input.charAt(i);
             if (mostCommonChar == null) {
                 mostCommonChar = characterToLookFor;
                 mostComCharCounter = 1;
             }
-            int currentCharCounter = 0;
-            for (int searchableChar = 1; searchableChar < input.length() - searchableChar - i; searchableChar++) {
+            int currentCharCounter = 1;
+            for (int searchableChar = 1; searchableChar < input.length(); searchableChar++) {
+
                 if (input.charAt(searchableChar) == characterToLookFor) {
                     currentCharCounter += 1;
 
+
                 }
-                if (currentCharCounter >= mostComCharCounter) {
+                if (currentCharCounter > mostComCharCounter) {
                     mostCommonChar = characterToLookFor;
                 }
             }
 
         }
+
         return mostCommonChar;
     }
 
