@@ -123,7 +123,7 @@ public class Code {
         printMatrix(matrix);
 
         int isolatedCount = 0;
-
+        // calculate columns
         for (int i = 0; i <= 7; i++) {
             if (!matrix[9][i] && !matrix[9][i + 2] && !matrix[8][i] && !matrix[8][i + 1] && !matrix[8][i + 2]) {
                 isolatedCount += 1;
