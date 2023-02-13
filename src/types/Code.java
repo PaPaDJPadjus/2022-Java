@@ -73,7 +73,7 @@ public class Code {
                     currentCharCounter += 1;
 
                 }
-                if (currentCharCounter > mostComCharCounter) {
+                if (currentCharCounter >= mostComCharCounter) {
                     mostCommonChar = characterToLookFor;
                 }
             }
