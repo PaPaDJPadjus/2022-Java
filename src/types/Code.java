@@ -106,7 +106,7 @@ public class Code {
         printMatrix(matrix);
 
         int isolatedCount = 0;
-
+        // calculate rows
         for (int i = 0; i <= 7; i++) {
             if (!matrix[0][i] && !matrix[0][i + 2] && !matrix[1][i] && !matrix[1][i + 1] && !matrix[1][i + 2]) {
                 isolatedCount += 1;
