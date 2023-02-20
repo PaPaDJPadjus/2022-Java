@@ -6,8 +6,7 @@ import java.util.Arrays;
 public class Code {
 
     public static void main(String[] args) {
-        System.out.println(sumIgnoringDuplicates(new int[]{1, 1}));
-
+        System.out.println(mode("cbb"));
     }
 
     public static boolean isSpecial(int candidate) {
@@ -23,10 +22,10 @@ public class Code {
         }
 
         int record = 0;
-        int streakCounter = 1;
+        int streakCounter = 0;
         for (int i = 0; i <= inputString.length() - 1; i++) {
             char charFromString = inputString.charAt(i);
-            for (int j = 1; j <= inputString.length() - i; j++) {
+            for (int j = 0; j < inputString.length() - i ; j++) {
                 char charsAfterSearchableChar = inputString.charAt(i + j);
                 if (charFromString == charsAfterSearchableChar) {
                     streakCounter += 1;
@@ -45,7 +44,7 @@ public class Code {
             return null;
         }
         int mostComCharCounter = 1;
-        Character mostCommonChar = 'x';
+        char mostCommonChar = 'x';
         for (int i = 0; i <= input.length() - 1; i++) {
             int newCharAmount = getCharacterCount(input, input.charAt(i));
             if (newCharAmount > mostComCharCounter) {
@@ -57,8 +56,8 @@ public class Code {
 
     public static int getCharacterCount(String allCharacters, char targetCharacter) {
 
-        int currentCharCounter = 1;
-        for (int searchableChar = 1; searchableChar < allCharacters.length(); searchableChar++) {
+        int currentCharCounter = 0;
+        for (int searchableChar = 0; searchableChar < allCharacters.length(); searchableChar++) {
 
             if (allCharacters.charAt(searchableChar) == targetCharacter) {
                 currentCharCounter += 1;
