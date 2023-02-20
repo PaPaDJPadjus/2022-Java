@@ -30,6 +30,9 @@ public class Code {
                 if (charFromString == charsAfterSearchableChar) {
                     streakCounter += 1;
                 }
+                else {
+                    break;
+                }
             }
             if (streakCounter > record) {
                 record = streakCounter;
