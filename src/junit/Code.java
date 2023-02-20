@@ -43,8 +43,8 @@ public class Code {
         if (input == null || input.equals("")) {
             return null;
         }
-        int mostComCharCounter = 1;
-        char mostCommonChar = 'x';
+        int mostComCharCounter = 0;
+        Character mostCommonChar = null;
         for (int i = 0; i <= input.length() - 1; i++) {
             int newCharAmount = getCharacterCount(input, input.charAt(i));
             if (newCharAmount > mostComCharCounter) {

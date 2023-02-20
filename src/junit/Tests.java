@@ -47,12 +47,13 @@ public class Tests {
     public void findsLongestStreak() {
         assertThat(Code.longestStreak(""), is(0));
         assertThat(Code.longestStreak("a"), is(1));
-        assertThat(Code.longestStreak("abbccc"), is(3));
+        assertThat(Code.longestStreak("cacbcfchcjckclco"), is(8));
         assertThat(Code.longestStreak("abcbccc"), is(4));
         assertThat(Code.longestStreak("abbcccdddbbddbb"), is(6));
         assertThat(Code.longestStreak("aaaaccc"), is(4));
 
-        assertThat(Code.longestStreak("aaaaa"), is(5));
+
+        assertThat(Code.longestStreak("aaaaba"), is(5));
         // other test cases for longestStreak() method
     }
 
