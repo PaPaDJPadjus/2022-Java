@@ -25,8 +25,8 @@ public class Code {
         int streakCounter = 0;
         for (int i = 0; i <= inputString.length() - 1; i++) {
             char charFromString = inputString.charAt(i);
-            for (int j = 0; j < inputString.length() - i ; j++) {
-                char charsAfterSearchableChar = inputString.charAt(i + j);
+            for (int j = i; j < inputString.length(); j++) {
+                char charsAfterSearchableChar = inputString.charAt(j);
                 if (charFromString == charsAfterSearchableChar) {
                     streakCounter += 1;
                 }
@@ -49,6 +49,7 @@ public class Code {
             int newCharAmount = getCharacterCount(input, input.charAt(i));
             if (newCharAmount > mostComCharCounter) {
                 mostCommonChar = input.charAt(i);
+                mostComCharCounter = newCharAmount;
             }
         }
         return mostCommonChar;

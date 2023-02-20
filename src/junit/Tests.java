@@ -51,6 +51,8 @@ public class Tests {
         assertThat(Code.longestStreak("abcbccc"), is(4));
         assertThat(Code.longestStreak("abbcccdddbbddbb"), is(6));
         assertThat(Code.longestStreak("aaaaccc"), is(4));
+        assertThat(Code.longestStreak("aaaaa546890cccc"), is(5));
+
 
 
         assertThat(Code.longestStreak("aaaaba"), is(5));
