@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class Code {
 
     public static void main(String[] args) {
-        System.out.println(mode("cbb"));
+        System.out.println(getCharacterCount("abbcccdddbbddb", 'b'));
     }
 
     public static boolean isSpecial(int candidate) {
