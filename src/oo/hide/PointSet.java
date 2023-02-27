@@ -38,7 +38,7 @@ public class PointSet {
     public int size() {
         int lengthOfArray = 0;
         for (Point el : points) {
-            if (!(el == null)) {
+            if (el != null) {
                 lengthOfArray += 1;
             }
         }
@@ -47,7 +47,7 @@ public class PointSet {
 
     public boolean contains(Point point) {
         for (Point el : points) {
-            if (!(el == null) &&Objects.equals(point.x, el.x) && Objects.equals(point.y, el.y)) {
+            if (el != null && Objects.equals(point.x, el.x) && Objects.equals(point.y, el.y)) {
                 return true;
             }
         }
@@ -59,7 +59,7 @@ public class PointSet {
         int indexCounter = 0;
 
         for (Point el : points) {
-            if (!(el == null) && indexCounter <= index) {
+            if (el != null && indexCounter <= index) {
                 setToString = setToString + "(%s, %s)".formatted(el.x, el.y);
                 indexCounter += 1;
                 if (indexCounter < index) {
@@ -75,14 +75,14 @@ public class PointSet {
 
 
         for (Point pointFromThis : points) {
-            if (!(pointFromThis == null)) {
+            if (pointFromThis != null) {
                 int checkForEqualsElement = 0;
                 for (Point pointFromOther : other.points) {
-                    if (!(pointFromOther == null && pointFromOther.equals(pointFromThis))) {
+                    if (pointFromOther != null && pointFromOther.equals(pointFromThis)) {
                             checkForEqualsElement++;
                     }
                 }
-                if (!(checkForEqualsElement >= 1)) {
+                if (checkForEqualsElement < 1) {
                     subtractedSet.add(pointFromThis);
                 }
             }
@@ -96,7 +96,7 @@ public class PointSet {
 
         int setIndex = 0;
         for (Point pointFromOther : other.points) {
-            if (!(pointFromOther == null && contains(pointFromOther))) {
+            if (pointFromOther != null && contains(pointFromOther)) {
                     intersectedArray.points[setIndex] = pointFromOther;
                     setIndex++;
             }
@@ -113,10 +113,10 @@ public class PointSet {
         int cycleCounter = 0;
         for (Point el : ((PointSet) obj).points) {
             cycleCounter++;
-            if (!(el == null && !contains(el))) {
+            if (el != null && !contains(el)) {
                 return false;
             }
-            if (el == null && !(this.size() == 0)) {
+            if (el == null && this.size() != 0) {
                 if (cycleCounter > this.size()) {
                     break;
                 }
