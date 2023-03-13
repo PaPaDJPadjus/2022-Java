@@ -7,6 +7,8 @@ public sealed abstract class AbstractSalesAnalyser permits DifferentiatedTaxSale
     protected List<SalesRecord> records;
     protected boolean differentiatedTaxSwitcher = false;
 
+    public abstract void calculatorPrivileges();
+
     public double calculator(double tax, List<SalesRecord> records) {
         double sumOfContents = 0.0;
         for (SalesRecord record : records) {
