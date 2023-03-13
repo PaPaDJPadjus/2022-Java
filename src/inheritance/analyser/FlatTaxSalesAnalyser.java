@@ -11,4 +11,9 @@ public final class FlatTaxSalesAnalyser extends AbstractSalesAnalyser{
     protected double calculateFlatTaxSales() {
         return calculator(tax, records);
     }
+
+    @Override
+    protected void calculatorPrivileges() {
+
+    }
 }

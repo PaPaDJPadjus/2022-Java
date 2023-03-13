@@ -13,4 +13,9 @@ public final class DifferentiatedTaxSalesAnalyser extends AbstractSalesAnalyser 
     protected double differentiatedTaxSalesAnalyser() {
         return calculator(tax, records);
     }
+
+    @Override
+    protected void calculatorPrivileges() {
+
+    }
 }

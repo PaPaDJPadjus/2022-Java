@@ -12,4 +12,9 @@ public final class TaxFreeSalesAnalyser extends AbstractSalesAnalyser{
     protected double calculateTaxFreeSales() {
         return calculator(tax, records);
     }
+
+    @Override
+    protected void calculatorPrivileges() {
+
+    }
 }
