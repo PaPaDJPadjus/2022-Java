@@ -64,17 +64,7 @@ public class CustomerRepository {
             }
             removeIndex++;
         }
-
-        try {
-            FileWriter csvWriter = new FileWriter(FILE_PATH, false);
-
-            csvWriter.write("");
-            csvWriter.flush();
-            csvWriter.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
+        clearFile();
         addCustomersFromCustomersList();
     }
 
@@ -97,10 +87,18 @@ public class CustomerRepository {
     }
 
     public void save(AbstractCustomer customer) {
-        customers.add(customer);
+        boolean customerInListChecker = false;
         for (AbstractCustomer abstractCustomer : customers) {
-            turnObjToStringRep(abstractCustomer);
+            if (abstractCustomer.id.equals(customer.id)) {
+                customerInListChecker = true;
+                abstractCustomer.bonusPoints = customer.bonusPoints;
+            }
         }
+        if (!customerInListChecker) {
+            customers.add(customer);
+        }
+        clearFile();
+        addCustomersFromCustomersList();
     }
 
         public int getCustomerCount() {
@@ -117,9 +115,21 @@ public class CustomerRepository {
         public void writeCustomerIntoFile(String customer) {
 
             try {
-                FileWriter csvWriter = new FileWriter(FILE_PATH);
+                FileWriter csvWriter = new FileWriter(FILE_PATH, true);
 
-                csvWriter.write(customer);
+                csvWriter.write(customer + "\n");
+                csvWriter.flush();
+                csvWriter.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        public void clearFile() {
+            try {
+                FileWriter csvWriter = new FileWriter(FILE_PATH, false);
+
+                csvWriter.write("");
                 csvWriter.flush();
                 csvWriter.close();
             } catch (IOException e) {
