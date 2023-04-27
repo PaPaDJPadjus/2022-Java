@@ -25,7 +25,7 @@ public class CustomerRepository {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        // for commit
         for (String line : lines) {
             String[] parts = line.split(";");
 
