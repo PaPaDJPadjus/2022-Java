@@ -55,11 +55,10 @@ public class CustomerRepository {
 
     public void remove(String id) {
         int removeIndex = 0;
-
+        readCustomersFromFileAndAddToCustomers();
         for (AbstractCustomer customer : customers) {
             if (customer.id.equals(id)) {
                 customers.remove(removeIndex);
-                System.out.println(customers);
                 break;
             }
             removeIndex++;
@@ -88,6 +87,9 @@ public class CustomerRepository {
 
     public void save(AbstractCustomer customer) {
         boolean customerInListChecker = false;
+        customers.clear();
+        readCustomersFromFileAndAddToCustomers();
+        System.out.println(customers);
         for (AbstractCustomer abstractCustomer : customers) {
             if (abstractCustomer.id.equals(customer.id)) {
                 customerInListChecker = true;
@@ -118,7 +120,6 @@ public class CustomerRepository {
                 FileWriter csvWriter = new FileWriter(FILE_PATH, true);
 
                 csvWriter.write(customer + "\n");
-                csvWriter.flush();
                 csvWriter.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
